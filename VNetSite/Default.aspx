@@ -34,7 +34,7 @@
                     </div>                
           </div>
           <div class="panel-footer">
-              <p><a href="https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-integrate-with-vnet" class="btn btn-info">Learn more &raquo;</a></p>
+              <p><a href="https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-integrate-with-vnet" class="btn btn-info" target="_blank">Learn more about Networking &raquo;</a></p>
           </div>
     </div>
 
