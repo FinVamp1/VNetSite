@@ -11,10 +11,15 @@ namespace VNetSite
 {
     public partial class _Default : Page
     {
+        static NetworkItems netUtils = new NetworkUtils.NetworkItems();
+        protected void Page_Init(object sender, EventArgs e)
+        {
+ 
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            var netUtils = new NetworkUtils.NetworkItems();
-            var activeNics = netUtils.GetNetworkCards();
+             var activeNics = netUtils.GetNetworkCards();
             var ipAddresses = netUtils.GetIpAddresses(activeNics);
             var dnsServers = netUtils.GetDNSServers(activeNics);
             NicGrid.DataSource = ipAddresses;
@@ -33,11 +38,26 @@ namespace VNetSite
             else
             {
                 dnsResults.Items.Clear();
-                var netUtils = new NetworkUtils.NetworkItems();
                 var dnsEntries = netUtils.DnsLookup(dnsHostName.Text);
                 dnsResults.DataSource = dnsEntries;
                 dnsResults.DataBind();
             }
         }
+        protected void RouteSrch_Click(object sender, EventArgs e)
+        {
+            if(String.IsNullOrEmpty(remoteIP.Text))
+            {
+                IPEndPoint.Items.Clear();
+                IPEndPoint.Items.Add(new ListItem("Please Enter an IP Address"));
+            }
+            else
+            {
+                IPEndPoint.Items.Clear();
+                var remoteEndpoints = netUtils.GetRemoteEndPoint(remoteIP.Text);
+                IPEndPoint.Items.Add(new ListItem(remoteEndpoints.Address.ToString()));
+            }
+        }
+
+
     }
 }
