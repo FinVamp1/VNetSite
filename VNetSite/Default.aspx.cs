@@ -27,10 +27,12 @@ namespace VNetSite
         {
             if (String.IsNullOrEmpty(dnsHostName.Text))
             {
-                dnsResults.Text = "Please enter a hostname";
+                dnsResults.Items.Clear();
+                dnsResults.Items.Add(new ListItem("Please enter a hostname"));
             }
             else
             {
+                dnsResults.Items.Clear();
                 var netUtils = new NetworkUtils.NetworkItems();
                 var dnsEntries = netUtils.DnsLookup(dnsHostName.Text);
                 dnsResults.DataSource = dnsEntries;

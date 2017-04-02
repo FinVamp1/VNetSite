@@ -9,7 +9,7 @@
 
                     <div class="row">                 
                             <div class="col-md-2">
-                            <p class="h4 text-primary">Ip Addresses</p>
+                            <p class="h4 text-primary">IP Addresses</p>
                                 <asp:DataGrid id="NicGrid" runat="server" AlternatingItemStyle-BackColor="Teal" gridlines="None">
                                 <HeaderStyle Font-Bold="True" Font-Underline="true" />
                                 </asp:DataGrid>

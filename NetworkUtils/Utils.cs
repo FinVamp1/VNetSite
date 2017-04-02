@@ -72,7 +72,7 @@ namespace NetworkUtils
             }
             catch (Exception ex)
             {
-                ipList.Add(ex.ToString());
+                ipList.Add(ex.Message.ToString());
             }
             return ipList;
         }
