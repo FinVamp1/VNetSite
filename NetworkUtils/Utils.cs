@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net;
 
 namespace NetworkUtils
 {
@@ -53,6 +54,27 @@ namespace NetworkUtils
                 }
             }
             return dnsInfo;
+        }
+
+        public List<string> DnsLookup(string hostName)
+        {
+            var ipList = new List<string>();
+            try
+            {
+                IPHostEntry hostEntry = Dns.GetHostEntry(hostName);
+                IPAddress[] ipAddrs = hostEntry.AddressList;
+                foreach (IPAddress ip in ipAddrs)
+                {
+                    ipList.Add(ip.ToString());
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                ipList.Add(ex.ToString());
+            }
+            return ipList;
         }
     }
 }

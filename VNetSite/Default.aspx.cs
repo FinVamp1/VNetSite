@@ -22,5 +22,20 @@ namespace VNetSite
             DNSGrid.DataSource = dnsServers;
             DNSGrid.DataBind();
         }
+
+        protected void Lookup_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(dnsHostName.Text))
+            {
+                dnsResults.Text = "Please enter a hostname";
+            }
+            else
+            {
+                var netUtils = new NetworkUtils.NetworkItems();
+                var dnsEntries = netUtils.DnsLookup(dnsHostName.Text);
+                dnsResults.DataSource = dnsEntries;
+                dnsResults.DataBind();
+            }
+        }
     }
 }
