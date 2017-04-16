@@ -24,16 +24,17 @@
                     <div class="row">
                              <div class="col-md-2">
                                 <p class="h4 text-primary">DNS Lookup</p>
-                                <asp:Label runat="server"> DNS Hostname</asp:Label><asp:TextBox runat="server" ID="dnsHostName" Text="Enter DNS Hostname"></asp:TextBox>
-                                <asp:Label runat="server"> DNS Results</asp:Label>
+                                <asp:Label runat="server" class="h5 text-primary"> DNS Hostname</asp:Label><asp:TextBox runat="server" ID="dnsHostName" Text="Enter DNS Hostname"></asp:TextBox>
+                                <asp:Label runat="server" class="h6 text-primary"> DNS Results</asp:Label>
                                 <asp:ListBox runat="server" ID="dnsResults" BorderColour="SeaGreen">
                                      <asp:ListItem>DNS Entries will be here</asp:ListItem>
                                  </asp:ListBox><br>
                                  <asp:Button runat="server" ID="Lookup" CausesValidation="true" OnClick="Lookup_Click" Text ="Lookup" CssClass="btn btn-primary" />
                             </div>
                             <div class="col-md-2">
-                                <p class="h4 test-primary">Route Lookup</p>
-                                <asp:Label runat="server"> Remote IP</asp:Label><asp:TextBox runat="server" ID="remoteIP" Text="Enter Remote IP "></asp:TextBox>
+                                <p class="h4 text-primary">Route Lookup</p>
+                                <asp:Label runat="server" class="h5 text-primary"> Remote IP</asp:Label><asp:TextBox runat="server" ID="remoteIP" Text="Enter Remote IP "></asp:TextBox>
+                                <asp:Label runat="server" class="h6 text-primary"> IP Routing</asp:Label>
                                 <asp:ListBox runat="server" ID="IPEndPoint" BorderColour="SeaGreen">
                                      <asp:ListItem>Route Endpoint is here</asp:ListItem>
                                  </asp:ListBox><br>
